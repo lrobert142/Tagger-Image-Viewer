@@ -18,6 +18,8 @@ ${txtbld}SYNOPSIS${txtrst}
 ${txtbld}DESCRIPTION${txtrst}
 	${txtbld}new_component${txtrst}
 	    Completely initialises a new components with it's JS, SASS and tests files. Also adds the SASS file to the "all.sass" file.${txtrst}
+  ${txtbld}new${txtrst}
+	    Alias for new_component.${txtrst}
   ${txtbld}create_component${txtrst}
 	    Create ONLY the skeleton of a new component in the "src/components" directory.${txtrst}
   ${txtbld}create_sass${txtrst}
@@ -33,7 +35,7 @@ exit 1
 
 create_component()
 {
-  base_name=$2
+  base_name=$1
   component_name="$(tr '[:lower:]' '[:upper:]' <<< ${base_name:0:1})${base_name:1}" # Capitalise 1st Letter.
   component_template=`cat templates/component`
   str_to_replace='__component__'
@@ -42,7 +44,7 @@ create_component()
 
 create_sass()
 {
-  base_name=$2
+  base_name=$1
   component_name="$(tr '[:upper:]' '[:lower:]' <<< ${base_name:0:1})${base_name:1}" # Lowercase 1st Letter.
   sass_template=`cat templates/sass`
   str_to_replace='__component__'
@@ -56,7 +58,7 @@ add_to_sass_all()
 
 create_test()
 {
-  base_name=$2
+  base_name=$1
   component_name="$(tr '[:lower:]' '[:upper:]' <<< ${base_name:0:1})${base_name:1}" # Capitalise 1st Letter
   test_template=`cat templates/test`
   str_to_replace='__component__'
@@ -65,20 +67,23 @@ create_test()
 
 new_component()
 {
-  create_component
-  create_sass
-  add_to_sass_all
-  create_test
+  create_component $1
+  create_sass $1
+  add_to_sass_all $1
+  create_test $1
 }
 
 parse () {
 	if [[ $# -eq 0 ]]; then
 		usage
 	elif [ $1 = "new_component" ]; then
-		new_component
+		new_component $2
+  elif [ $1 = "new" ]; then
+		new_component $2
 	else
 	  usage
 	fi
 }
 
 parse $@
+echo "Finished!"
