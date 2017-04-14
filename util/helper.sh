@@ -35,42 +35,42 @@ exit 1
 
 create_component()
 {
-  base_name=$1
-  component_name="$(tr '[:lower:]' '[:upper:]' <<< ${base_name:0:1})${base_name:1}" # Capitalise 1st Letter.
-  component_template=`cat templates/component`
+  component_name="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}" # Capitalise 1st Letter.
+  component_template=`cat $dir/templates/component`
   str_to_replace='__component__'
-  echo "${component_template//$str_to_replace/$component_name}" >> "../src/components/${component_name}.js"
+  echo "${component_template//$str_to_replace/$component_name}" >> "$dir/../src/components/${component_name}.js"
 }
 
 create_sass()
 {
-  base_name=$1
-  component_name="$(tr '[:upper:]' '[:lower:]' <<< ${base_name:0:1})${base_name:1}" # Lowercase 1st Letter.
-  sass_template=`cat templates/sass`
+  component_name="$(tr '[:upper:]' '[:lower:]' <<< ${name:0:1})${name:1}" # Lowercase 1st Letter.
+  sass_template=`cat $dir/templates/sass`
   str_to_replace='__component__'
-  echo "${sass_template//$str_to_replace/$component_name}" >> "../src/stylesheets/components/_${component_name}.sass"
+  echo "${sass_template//$str_to_replace/$component_name}" >> "$dir/../src/stylesheets/components/_${component_name}.sass"
 }
 
 add_to_sass_all()
 {
-  echo "@include ${component_name}" >> "../src/stylesheets/components/all.sass"
+	component_name="$(tr '[:upper:]' '[:lower:]' <<< ${name:0:1})${name:1}" # Lowercase 1st Letter.
+  echo "@import ${component_name}" >> "$dir/../src/stylesheets/components/all.sass"
 }
 
 create_test()
 {
-  base_name=$1
-  component_name="$(tr '[:lower:]' '[:upper:]' <<< ${base_name:0:1})${base_name:1}" # Capitalise 1st Letter
-  test_template=`cat templates/test`
+  component_name="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}" # Capitalise 1st Letter
+  test_template=`cat $dir/templates/test`
   str_to_replace='__component__'
-  echo "${test_template//$str_to_replace/$component_name}" >> "../src/components/test/${component_name}.test.js"
+  echo "${test_template//$str_to_replace/$component_name}" >> "$dir/../src/components/test/${component_name}.test.js"
 }
 
 new_component()
 {
-  create_component $1
-  create_sass $1
-  add_to_sass_all $1
-  create_test $1
+	name=$1
+	dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  create_component $name $dir
+  create_sass $name $dir
+  add_to_sass_all $name $dir
+  create_test $name $dir
 }
 
 parse () {
