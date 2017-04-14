@@ -24,7 +24,8 @@ Calling `helper.sh` with the `new_component` or `new` argument will bootstrap al
   * Creating the SASS stylesheet located under the `src/stylesheets/components/` directory
     * Note: The component will have the first letter of it's name lowercased and an underscore prepended. Remaining letters will be unaffected.
   * Including the new SASS file to the `src/stylesheets/components/all.sass` file via `@include <stylesheet>`
-Note: Data is **appended** to the end of files via this helper. This is to avoid overwriting existing files' content if a file with the request name already exists.
+
+> Note: Data is **appended** to the end of files via this helper. This is to avoid overwriting existing files' content if a file with the request name already exists.
 
 # Project Structure
 
