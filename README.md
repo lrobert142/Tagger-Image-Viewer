@@ -9,6 +9,23 @@ A React front-end to manage and view images by tags
   * To compile SASS files into CSS files and **recompile every time a change is detected**, run `npm run watch-css`
     * Note: In both of the above cases, a CSS file containing all compiled styles will be generated at `src/main.css`
 
+## Assistant Script
+
+Included in the `util` directory is a bash script that can help automate more mundane tasks. The specific assistance the script can provide is described below.
+  * Alternatively you can view script usage by calling the script with the `usage` argument
+
+### Create a new component
+
+Calling `helper.sh` with the `new_component` or `new` argument will bootstrap all default files that should be created when a new component is created. This bootstrapping includes:
+  * Creating the JS component itself located under the `src/components/` directory
+    * Note: The component will have the first letter of it's name capitalized. Remaining letters will be unaffected.
+  * Creating the JS component test located under the `src/components/test/` directory
+    * Note: The component will have the first letter of it's name capitalized. Remaining letters will be unaffected.
+  * Creating the SASS stylesheet located under the `src/stylesheets/components/` directory
+    * Note: The component will have the first letter of it's name lowercased and an underscore prepended. Remaining letters will be unaffected.
+  * Including the new SASS file to the `src/stylesheets/components/all.sass` file via `@include <stylesheet>`
+Note: Data is **appended** to the end of files via this helper. This is to avoid overwriting existing files' content if a file with the request name already exists.
+
 # Project Structure
 
 ```
