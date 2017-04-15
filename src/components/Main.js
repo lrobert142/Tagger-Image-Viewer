@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Thumbnail from "./Thumbnail"
 import ImageModal from "./ImageModal"
+import Searchbar from "./Searchbar"
 
 class Main extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class Main extends Component {
 
     return (
       <div className="Main">
+        <Searchbar />
         <ImageModal modalActive={this.state.modalActive} title={activeImage.title} tags={activeImage.tags} image={activeImage.src} handleClose={this.toggleModal} />
         {thumbnails}
       </div>

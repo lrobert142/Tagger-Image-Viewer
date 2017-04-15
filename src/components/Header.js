@@ -4,7 +4,7 @@ class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <h2>Welcome to React</h2>
+        <h2>Tagged Image Viewer</h2>
       </div>
     );
   }

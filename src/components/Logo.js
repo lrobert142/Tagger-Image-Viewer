@@ -5,8 +5,8 @@ class Logo extends Component {
   render() {
     return (
       <div className="Logo">
-        <img src={logo} width="80" height="80" alt="Logo" />
-        <p className="Logo__text">Logo Text</p>
+        <img className="Logo__Image" src={logo} width="80" height="80" alt="Logo" />
+        <p className="Logo__text">Tagged Image Viewer</p>
       </div>
     );
   }
