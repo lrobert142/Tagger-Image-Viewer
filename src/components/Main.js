@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Thumbnail from "./Thumbnail"
 
 class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <p>Hello, World!</p>
+        <Thumbnail />
+        <Thumbnail />
+        <Thumbnail />
+        <Thumbnail />
       </div>
     );
   }
