@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../img/logo.svg';
 
 class Thumbnail extends Component {
   handleClick() {
@@ -9,8 +8,8 @@ class Thumbnail extends Component {
   render() {
     return (
       <div className="Thumbnail" onClick={this.handleClick}>
-        <img className="Thumbnail__image" src={logo} alt="" />
-        <p className="Thumbnail__name">Name</p>
+        <img className="Thumbnail__image" src={this.props.image} alt="" />
+        <p className="Thumbnail__name">{this.props.name}</p>
       </div>
     );
   }
