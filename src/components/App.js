@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Main />
+        <Main baseUrl="http://localhost:2000" />
       </div>
     );
   }
