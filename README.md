@@ -4,7 +4,7 @@ A React front-end to manage and view images by tags
 
 ## Key Tasks / Scripts
 
-  * To start the React front end, in Terminal run `npm start`
+  * To start the application in browser, in Terminal run `meteor` at the root of the project
   * To compile SASS files into CSS files **only once**, run `npm build-css`
   * To compile SASS files into CSS files and **recompile every time a change is detected**, run `npm run watch-css`
     * Note: In both of the above cases, a CSS file containing all compiled styles will be generated at `src/main.css`
