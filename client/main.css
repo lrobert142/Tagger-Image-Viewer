@@ -1,4 +1,4 @@
-/* ---------- _reset.sass ---------- */
+/* ---------- _reset.scss ---------- */
 * {
   box-sizing: border-box; }
 
@@ -11,14 +11,14 @@ p {
   padding: 0;
   margin: 0; }
 
-/* ---------- _colors.sass ---------- */
-/* ---------- _spacing.sass ---------- */
+/* ---------- _colors.scss ---------- */
+/* ---------- _spacing.scss ---------- */
 /* ---------- Component-specific variables ---------- */
-/* ---------- _general.sass ---------- */
+/* ---------- _general.scss ---------- */
 .no-display {
   display: none; }
 
-/* ---------- _sidebar.sass ---------- */
+/* ---------- _sidebar.scss ---------- */
 .Sidebar {
   position: absolute;
   left: 0;
@@ -39,14 +39,14 @@ p {
   padding: 20px 10px;
   color: #FFFFFF; }
 
-/* ---------- _app.sass ---------- */
+/* ---------- _app.scss ---------- */
 .App {
   text-align: center; }
 
 .App-intro {
   font-size: large; }
 
-/* ---------- _logo.sass ---------- */
+/* ---------- _logo.sacs ---------- */
 .Logo {
   padding: 10px; }
 
@@ -56,18 +56,18 @@ p {
 .Logo__Image {
   margin-bottom: 10px; }
 
-/* ---------- _header.sass ---------- */
+/* ---------- _header.scss ---------- */
 .Header {
   background-color: #222222;
   padding: 10px;
   color: #FFFFFF; }
 
-/* ---------- _main.sass ---------- */
+/* ---------- _main.scss ---------- */
 .Main {
   padding: 20px;
   text-align: left; }
 
-/* ---------- _thumbnail.sass ---------- */
+/* ---------- _thumbnail.scss ---------- */
 .Thumbnail {
   padding: 10px;
   text-align: center;
@@ -96,7 +96,7 @@ p {
   font-weight: bold;
   margin-top: 10px; }
 
-/* ---------- _imageModal.sass ---------- */
+/* ---------- _imageModal.scss ---------- */
 .ImageModal {
   position: absolute;
   top: 0;
@@ -138,7 +138,7 @@ p {
   border: 1px solid #FFFFFF;
   max-height: 100%; }
 
-/* ---------- _searchbar.sass ---------- */
+/* ---------- _searchbar.scss ---------- */
 .Searchbar {
   padding: 20px;
   border: 1px solid #000000;

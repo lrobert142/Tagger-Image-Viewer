@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "build-css": "node-sass client/sass/main.sass > client/main.css",
+    "build-css": "node-sass client/sass/main.scss > client/main.css",
     "watch-css": "npm run build-css && nodemon -e sass -x \"npm run build-css\""
   },
   "devDependencies": {
