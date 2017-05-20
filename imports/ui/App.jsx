@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Records } from '../api/records-collection.js';
 
 import Header from './Header';
 import Main from './Main';
@@ -46,7 +47,9 @@ class App extends Component {
           console.log(err);
         } else {
           //TODO Add more details, insert into DB, clear form (& close modal???)
-          console.log("NEW RECORD ADDED:", fileObj);
+          let imageUrl = "/cfs/files/images/" + fileObj._id;
+          // Meteor.call('records.insert', title, tags, imageUrl);
+          console.log("NEW RECORD ADDED:", imageUrl);
         }
       });
     });
