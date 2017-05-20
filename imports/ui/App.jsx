@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //TODO
+    //TODO Get images, set state
     // this.setState(prevState => ({
     //     images: Images.find()
     // }));

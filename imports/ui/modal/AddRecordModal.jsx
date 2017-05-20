@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Images } from '../../api/common.js';
+import { Images } from '../../api/images-collection.js';
 
 class AddRecordModal extends Component {
 
