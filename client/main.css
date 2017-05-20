@@ -1,0 +1,155 @@
+/* ---------- _reset.sass ---------- */
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+p {
+  padding: 0;
+  margin: 0; }
+
+/* ---------- _colors.sass ---------- */
+/* ---------- _spacing.sass ---------- */
+/* ---------- Component-specific variables ---------- */
+/* ---------- _general.sass ---------- */
+.no-display {
+  display: none; }
+
+/* ---------- _sidebar.sass ---------- */
+.Sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  text-align: center;
+  background: #222222; }
+
+.Vertical-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.Vertical-menu__item {
+  display: block;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 20px 10px;
+  color: #FFFFFF; }
+
+/* ---------- _app.sass ---------- */
+.App {
+  text-align: center; }
+
+.App-intro {
+  font-size: large; }
+
+/* ---------- _logo.sass ---------- */
+.Logo {
+  padding: 10px; }
+
+.Logo__text {
+  color: #FFFFFF; }
+
+.Logo__Image {
+  margin-bottom: 10px; }
+
+/* ---------- _header.sass ---------- */
+.Header {
+  background-color: #222222;
+  padding: 10px;
+  color: #FFFFFF; }
+
+/* ---------- _main.sass ---------- */
+.Main {
+  padding: 20px;
+  text-align: left; }
+
+/* ---------- _thumbnail.sass ---------- */
+.Thumbnail {
+  padding: 10px;
+  text-align: center;
+  width: 32.6%;
+  height: 200px;
+  border: thin solid black;
+  display: inline-block;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  cursor: pointer; }
+  @media screen and (max-width: 870px) {
+    .Thumbnail {
+      width: 49%; } }
+  @media screen and (max-width: 775px) {
+    .Thumbnail {
+      width: 100%;
+      margin-right: 0; } }
+
+.Thumbnail:last-child {
+  margin-right: 0; }
+
+.Thumbnail__Image {
+  height: 150px; }
+
+.Thumbnail__Title {
+  font-weight: bold;
+  margin-top: 10px; }
+
+/* ---------- _imageModal.sass ---------- */
+.ImageModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(34, 34, 34, 0.9);
+  padding: 50px;
+  overflow: scroll;
+  display: block; }
+
+.ImageModal__Close {
+  padding: 15px;
+  cursor: pointer;
+  text-align: right;
+  color: #FFFFFF;
+  font-weight: bold;
+  float: right;
+  margin-bottom: 20px; }
+
+.ImageModal__Content {
+  clear: both; }
+
+.ImageModal__Left {
+  display: inline-block;
+  width: 30%;
+  margin-right: 1%;
+  color: #FFFFFF;
+  vertical-align: top;
+  padding: 20px;
+  border: 3px double #FFFFFF; }
+
+.ImageModal__Right {
+  display: inline-block;
+  width: 66%;
+  text-align: center; }
+
+.ImageModal__Image {
+  border: 1px solid #FFFFFF;
+  max-height: 100%; }
+
+/* ---------- _searchbar.sass ---------- */
+.Searchbar {
+  padding: 20px;
+  border: 1px solid #000000;
+  margin-bottom: 10px; }
+
+.Searchbar__Search {
+  height: 20px;
+  padding-bottom: 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+  font-size: 15px;
+  color: #000000;
+  width: 100%; }
