@@ -62,6 +62,13 @@ p {
   padding: 10px;
   color: #FFFFFF; }
 
+.Header__Add {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 30px;
+  cursor: pointer; }
+
 /* ---------- _main.scss ---------- */
 .Main {
   padding: 20px;
@@ -96,8 +103,8 @@ p {
   font-weight: bold;
   margin-top: 10px; }
 
-/* ---------- _imageModal.scss ---------- */
-.ImageModal {
+/* ---------- _modal.scss ---------- */
+.Modal {
   position: absolute;
   top: 0;
   left: 0;
@@ -108,7 +115,7 @@ p {
   overflow: scroll;
   display: block; }
 
-.ImageModal__Close {
+.Modal__Close {
   padding: 15px;
   cursor: pointer;
   text-align: right;
@@ -117,9 +124,10 @@ p {
   float: right;
   margin-bottom: 20px; }
 
-.ImageModal__Content {
+.Modal__Content {
   clear: both; }
 
+/* ---------- _imageModal.scss ---------- */
 .ImageModal__Left {
   display: inline-block;
   width: 30%;

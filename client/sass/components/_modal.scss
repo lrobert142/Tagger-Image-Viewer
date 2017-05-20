@@ -1,0 +1,26 @@
+/* ---------- _modal.scss ---------- */
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: $primary-modal-background;
+  padding: $padding-large;
+  overflow: scroll;
+  display: block;
+}
+
+.Modal__Close {
+  padding: 15px;
+  cursor: pointer;
+  text-align: right;
+  color: $primary-text;
+  font-weight: bold;
+  float: right;
+  margin-bottom: $padding-medium;
+}
+
+.Modal__Content {
+  clear: both;
+}

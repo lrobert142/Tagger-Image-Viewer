@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class ImageModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return (
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'} onClick={this.props.handleClose}>
@@ -8,14 +14,10 @@ class ImageModal extends Component {
           <p>X</p>
         </div>
         <div className="Modal__Content">
-          <div className="ImageModal__Left">
-            <h1>{this.props.title}</h1>
-            <h2>Tags</h2>
-            <p>{this.props.tags.toString()}</p>
-          </div>
-          <div className="ImageModal__Right">
-            <img className="ImageModal__Image" src={this.props.image} alt="" />
-          </div>
+          <input id="title" name="title" type="text" placeholder="Title" />
+          <input id="tags" name="tags" type="text" placeholder="Tags" />
+          <input id="file" name="file" type="file" />
+          <input id="submit" type="submit" value="Add" />
         </div>
       </div>
     );
