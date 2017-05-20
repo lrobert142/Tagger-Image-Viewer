@@ -13,10 +13,10 @@ if (Meteor.isServer) {
 Meteor.methods({
   'records.insert'(title, tags, image) {
     check(title, String);
-    check(tags, Array);
+    check(tags, String);
     check(image, String);
 
-    Tasks.insert({
+    Records.insert({
       title: title,
       tags: tags,
       image: image,

@@ -16,7 +16,7 @@ class ImageModal extends Component {
           <div className="ImageModal__Left">
             <h1>{this.props.record.title}</h1>
             <h2>Tags</h2>
-            <p>{this.props.record.tags.toString()}</p>
+            <p>{this.props.record.tags}</p>
           </div>
           <div className="ImageModal__Right">
             <img className="ImageModal__Image" src={this.props.record.image} alt="" />

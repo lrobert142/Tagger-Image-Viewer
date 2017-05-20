@@ -11,8 +11,8 @@ class Main extends Component {
 
   render() {
     let thumbnails = [];
-    this.props.images.forEach((image, index) => {
-        thumbnails.push(<Thumbnail key={image.id} index={index} src={image.url} title={image.title} handleClick={ () => (this.props.handleThumbnailClick(index)) }/>);
+    this.props.records.forEach((record, index) => {
+        thumbnails.push(<Thumbnail key={index} index={index} src={record.image} title={record.title} handleClick={ () => (this.props.handleThumbnailClick(index)) }/>);
     });
 
     return (

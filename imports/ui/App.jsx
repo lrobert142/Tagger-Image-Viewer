@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
+
 import { Records } from '../api/records-collection.js';
 
 import Header from './Header';
@@ -11,17 +13,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      activeModal: '',
-      images: [
-        {
-          id: 0,
-          title: '',
-          tags: '',
-          url: ''
-        }
-      ],
-      activeImageIndex: 0,
-      searchText: ''
+      'activeModal': '',
+      'activeImageIndex': 0,
+      'searchText': ''
     };
 
     this.addRecord = this.addRecord.bind(this);
@@ -31,27 +25,15 @@ class App extends Component {
     this.showImage = this.showImage.bind(this);
   }
 
-  componentDidMount() {
-    //TODO Get images, set state
-    // this.setState(prevState => ({
-    //     images: Images.find()
-    // }));
-    console.log("IMAGES:", Images);
-  }
-
-  addRecord(event) {
-    FS.Utility.eachFile(event, function(file) {
-      Images.insert(file, function (err, fileObj) {
-        if(err) {
-          console.log("An error occurred!");
-          console.log(err);
-        } else {
-          //TODO Add more details, insert into DB, clear form (& close modal???)
-          let imageUrl = "/cfs/files/images/" + fileObj._id;
-          // Meteor.call('records.insert', title, tags, imageUrl);
-          console.log("NEW RECORD ADDED:", imageUrl);
-        }
-      });
+  addRecord(title, tags, image) {
+    Images.insert(image, (err, fileObj) => {
+      if (err) {
+        console.log("An error occurred!");
+        console.log(err);
+      } else {
+        let imageUrl = "/cfs/files/images/" + fileObj._id;
+        Meteor.call('records.insert', title, tags, imageUrl);
+      }
     });
   }
 
@@ -89,12 +71,20 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleAddNew={this.showAddModal} />
-        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} images={this.state.images} />
+        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} />
         <AddRecordModal handleSubmit={this.addRecord} handleClose={this.closeModal} modalActive={this.state.activeModal === 'AddRecordModal'} />
-        <ImageModal handleClose={this.closeModal} modalActive={this.state.activeModal === 'ImageModal'} record={this.state.images[this.state.activeImageIndex]} />
+        <ImageModal handleClose={this.closeModal} modalActive={this.state.activeModal === 'ImageModal'}
+          record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) }
+        />
       </div>
     );
   }
 }
 
-export default App;
+export default createContainer(() => {
+  Meteor.subscribe('records');
+
+    return {
+        records: Records.find({}, {sort: {createdAt: -1}}).fetch()
+    };
+}, App);

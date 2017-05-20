@@ -14,10 +14,19 @@ class AddRecordModal extends Component {
           <p>X</p>
         </div>
         <div className="Modal__Content">
-          <form className="AddRecordForm" onSubmit={this.props.handleSubmit}>
+          <form id="addRecordForm" className="AddRecordForm"
+            onSubmit={(event) => {
+              event.preventDefault();
+
+              let title = document.getElementById('title').value;
+              let tags = document.getElementById('tags').value;
+              let image = document.forms['addRecordForm']['image'].files[0];
+              this.props.handleSubmit(title, tags, image);
+            } }
+          >
             <input id="title" name="title" type="text" placeholder="Title" />
             <input id="tags" name="tags" type="text" placeholder="Tags" />
-            <input id="file" name="file" type="file" />
+            <input id="image" name="image" type="file" />
             <input id="submit" type="submit" value="Submit" />
           </form>
         </div>
