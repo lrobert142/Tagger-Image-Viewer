@@ -23,6 +23,7 @@ class App extends Component {
     this.showImageModal = this.showImageModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.showImage = this.showImage.bind(this);
+    this.filterBySearch = this.filterBySearch.bind(this);
   }
 
   addRecord(title, tags, image) {
@@ -39,39 +40,40 @@ class App extends Component {
 
   showAddModal() {
     this.setState(prevState => ({
-        activeModal: 'AddRecordModal'
+        'activeModal': 'AddRecordModal'
     }));
   }
 
   showImageModal() {
     this.setState(prevState => ({
-      activeModal: 'ImageModal'
+      'activeModal': 'ImageModal'
     }));
   }
 
   closeModal() {
     this.setState(prevState => ({
-      activeModal: ''
+      'activeModal': ''
     }));
   }
 
   showImage(index) {
     this.setState(prevState => ({
-        activeImageIndex: index
+        'activeImageIndex': index
     }));
     this.showImageModal();
   }
 
   filterBySearch(search) {
-    //TODO Filter by search, set state
-    console.log("FILTER BY SEARCH");
+    this.setState(prevState => ({
+        'searchText': search
+    }));
   }
 
   render() {
     return (
       <div className="App">
         <Header handleAddNew={this.showAddModal} />
-        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} />
+        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} searchText={this.state.searchText} />
         <AddRecordModal handleSubmit={this.addRecord} handleClose={this.closeModal} modalActive={this.state.activeModal === 'AddRecordModal'} />
         <ImageModal handleClose={this.closeModal} modalActive={this.state.activeModal === 'ImageModal'}
           record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) }
@@ -82,7 +84,7 @@ class App extends Component {
 }
 
 export default createContainer(() => {
-  Meteor.subscribe('records');
+  Meteor.subscribe('records', 'title');
 
     return {
         records: Records.find({}, {sort: {createdAt: -1}}).fetch()

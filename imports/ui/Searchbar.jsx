@@ -8,7 +8,7 @@ class Searchbar extends Component {
   render() {
     return (
       <div className="Searchbar">
-        <input className="Searchbar__Search" ref="search" type="text" placeholder="Search..." onChange={() => {this.props.handleChange(this.refs.search.value)}} />
+        <input className="Searchbar__Search" ref="search" type="text" placeholder="Search..." onChange={() => { this.props.handleChange(this.refs.search.value); }} />
       </div>
     );
   }
