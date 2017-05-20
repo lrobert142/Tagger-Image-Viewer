@@ -52,7 +52,7 @@ create_sass()
 add_to_sass_all()
 {
 	component_name="$(tr '[:upper:]' '[:lower:]' <<< ${name:0:1})${name:1}" # Lowercase 1st Letter.
-  echo "@import ${component_name}" >> "$dir/../client/sass/components/all.sass"
+  echo "@import \"${component_name}\";" >> "$dir/../client/sass/components/all.scss"
 }
 
 create_test()
