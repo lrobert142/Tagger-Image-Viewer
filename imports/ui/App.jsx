@@ -16,9 +16,21 @@ class App extends Component {
     this.toggleAddModal = this.toggleAddModal.bind(this);
   }
 
-  addRecord() {
-    //TODO Add new record to DB
-    console.log("NEW RECORD ADDED");
+  addRecord(event) {
+    console.log("EVENT:", event);
+    FS.Utility.eachFile(event, function(file) {
+      Images.insert(file, function (err, fileObj) {
+        if(err) {
+          console.log("An error occurred!");
+          console.log(err);
+        } else {
+          console.log("NEW RECORD ADDED:", fileObj);
+        }
+        // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+      });
+    });
+
+    //TODO Show confirmation message + clear form
   }
 
   toggleAddModal() {

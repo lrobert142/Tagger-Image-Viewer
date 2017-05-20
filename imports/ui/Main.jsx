@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import Thumbnail from "./Thumbnail"
 import ImageModal from "./ImageModal"
 import Searchbar from "./Searchbar"
@@ -28,8 +29,10 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    //TODO Get all images
-    console.log("componentDidMount");
+    this.setState(prevState => ({
+        images: Images.find()
+    }));
+    console.log("IMAGES:", Images);
   }
 
   handleThumbnailClick(index) {
