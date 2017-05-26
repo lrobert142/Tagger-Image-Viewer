@@ -13,15 +13,15 @@
 }
 
 .Modal__Close {
+  position: fixed;
+  right: 0;
   padding: 15px;
   cursor: pointer;
   text-align: right;
   color: $primary-text;
   font-weight: bold;
-  float: right;
-  margin-bottom: $padding-medium;
 }
 
 .Modal__Content {
-  clear: both;
+  margin-top: $padding-large;
 }

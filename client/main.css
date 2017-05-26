@@ -134,16 +134,16 @@ p {
   color: #FFFFFF; }
 
 .Modal__Close {
+  position: fixed;
+  right: 0;
   padding: 15px;
   cursor: pointer;
   text-align: right;
   color: #FFFFFF;
-  font-weight: bold;
-  float: right;
-  margin-bottom: 20px; }
+  font-weight: bold; }
 
 .Modal__Content {
-  clear: both; }
+  margin-top: 50px; }
 
 /* ---------- _imageModal.scss ---------- */
 .ImageModal__Left {
