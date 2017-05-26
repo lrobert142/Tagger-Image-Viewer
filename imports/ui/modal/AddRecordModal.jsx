@@ -24,6 +24,7 @@ class AddRecordModal extends Component {
               this.props.handleSubmit(title, tags, image);
             } }
           >
+            <h1 className="Modal__Title">Add New Image</h1>
             <input id="title" name="title" type="text" placeholder="Title" />
             <input id="tags" name="tags" type="text" placeholder="Tags" />
             <input id="image" name="image" type="file" />
