@@ -1,0 +1,21 @@
+/* ---------- _addRecordModal.scss ---------- */
+.AddRecordModal {}
+
+.AddRecordForm {
+  text-align: center;
+
+  input {
+    width: 200px;
+    margin-bottom: $padding-medium;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $padding-small;
+    display: block;
+
+    &[type="submit"] {
+      border: none;
+      background-color: #FFFFFF;
+      border-radius: $border-radius-round;
+    }
+  }
+}
