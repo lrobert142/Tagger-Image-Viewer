@@ -7,6 +7,16 @@
   vertical-align: top;
   padding: $padding-medium;
   border: 3px double $primary-border;
+
+  &-Heading {
+    margin-bottom: $padding-large;
+  }
+
+  &-Subheading {
+    padding-bottom: $padding-small;
+    margin-bottom: $padding-medium;
+    border-bottom: 2px solid white;
+  }
 }
 
 .ImageModal__Right {

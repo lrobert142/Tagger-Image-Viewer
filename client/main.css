@@ -154,6 +154,12 @@ p {
   vertical-align: top;
   padding: 20px;
   border: 3px double #FFFFFF; }
+  .ImageModal__Left-Heading {
+    margin-bottom: 50px; }
+  .ImageModal__Left-Subheading {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid white; }
 
 .ImageModal__Right {
   display: inline-block;

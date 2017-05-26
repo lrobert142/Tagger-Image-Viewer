@@ -14,8 +14,8 @@ class ImageModal extends Component {
         </div>
         <div className="Modal__Content">
           <div className="ImageModal__Left">
-            <h1>{this.props.record.title}</h1>
-            <h2>Tags</h2>
+            <h1 className="ImageModal__Left-Heading">{this.props.record.title}</h1>
+            <h2 className="ImageModal__Left-Subheading">Tags</h2>
             <p>{this.props.record.tags}</p>
           </div>
           <div className="ImageModal__Right">
