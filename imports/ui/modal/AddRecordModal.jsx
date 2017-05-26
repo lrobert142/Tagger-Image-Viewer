@@ -25,9 +25,9 @@ class AddRecordModal extends Component {
             } }
           >
             <h1 className="Modal__Title">Add New Image</h1>
-            <input id="title" name="title" type="text" placeholder="Title" />
-            <input id="tags" name="tags" type="text" placeholder="Tags" />
-            <input id="image" name="image" type="file" />
+            <input id="title" name="title" type="text" placeholder="Title" required />
+            <input id="tags" name="tags" type="text" placeholder="Tags" required />
+            <input id="image" name="image" type="file" required />
             <input id="submit" type="submit" value="Submit" />
           </form>
         </div>
