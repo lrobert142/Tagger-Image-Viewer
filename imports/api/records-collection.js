@@ -39,4 +39,9 @@ Meteor.methods({
       $set: { tags: tags },
     });
   },
+
+  'records.delete'(id) {
+
+    Records.remove(id);
+  },
 });

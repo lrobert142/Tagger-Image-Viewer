@@ -57,8 +57,7 @@ class App extends Component {
 
   deleteRecord() {
     let id = this.props.records[this.state.activeImageIndex]._id;
-    console.log("DELETE");
-    // Meteor.call('records.delete', id);
+    Meteor.call('records.delete', id);
   }
 
   showAddModal() {
