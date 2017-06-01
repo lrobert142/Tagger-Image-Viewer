@@ -12,14 +12,25 @@
   color: $primary-text;
 }
 
-.Modal__Close {
+.Modal__Options {
   position: fixed;
   right: 0;
-  padding: 15px;
   cursor: pointer;
   text-align: right;
   color: $primary-text;
   font-weight: bold;
+
+  &-Edit {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px
+  }
+
+  &-Close {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px
+  }
 }
 
 .Modal__Content {

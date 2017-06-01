@@ -19,10 +19,14 @@ class App extends Component {
     };
 
     this.addRecord = this.addRecord.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateTags = this.updateTags.bind(this);
+
     this.showAddModal = this.showAddModal.bind(this);
     this.showImageModal = this.showImageModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.showImage = this.showImage.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
     this.filterBySearch = this.filterBySearch.bind(this);
   }
 
@@ -36,6 +40,18 @@ class App extends Component {
         Meteor.call('records.insert', title, tags, imageUrl);
       }
     });
+  }
+
+  updateTitle(event) {
+    let id = this.props.records[this.state.activeImageIndex]._id;
+    let title = event.target.value;
+    Meteor.call('records.updateTitle', id, title);
+  }
+
+  updateTags(event) {
+    let id = this.props.records[this.state.activeImageIndex]._id;
+    let tags = event.target.value;
+    Meteor.call('records.updateTags', id, tags);
   }
 
   showAddModal() {
@@ -73,11 +89,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleAddNew={this.showAddModal} />
-        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} searchText={this.state.searchText} />
-        <AddRecordModal handleSubmit={this.addRecord} handleClose={this.closeModal} modalActive={this.state.activeModal === 'AddRecordModal'} />
-        <ImageModal handleClose={this.closeModal} modalActive={this.state.activeModal === 'ImageModal'}
-          record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) }
-        />
+        <Main
+          handleThumbnailClick={this.showImage}
+          handleSearch={this.filterBySearch}
+          records={this.props.records}
+          searchText={this.state.searchText} />
+
+        <AddRecordModal
+          handleSubmit={this.addRecord}
+          handleClose={this.closeModal}
+          modalActive={this.state.activeModal === 'AddRecordModal'} />
+
+        <ImageModal
+          handleClose={this.closeModal}
+          handleTitleChange={this.updateTitle}
+          handleTagsChange={this.updateTags}
+          modalActive={this.state.activeModal === 'ImageModal'}
+          record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) } />
       </div>
     );
   }
