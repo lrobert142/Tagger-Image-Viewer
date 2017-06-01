@@ -4,7 +4,7 @@ A React front-end to manage and view images by tags
 
 ## Key Tasks / Scripts
 
-  * To start the React front end, in Terminal run `npm start`
+  * To start the application in browser, in Terminal run `meteor` at the root of the project
   * To compile SASS files into CSS files **only once**, run `npm build-css`
   * To compile SASS files into CSS files and **recompile every time a change is detected**, run `npm run watch-css`
     * Note: In both of the above cases, a CSS file containing all compiled styles will be generated at `src/main.css`
@@ -17,48 +17,45 @@ Included in the `util` directory is a bash script that can help automate more mu
 ### Create a new component
 
 Calling `helper.sh` with the `new_component` or `new` argument will bootstrap all default files that should be created when a new component is created. This bootstrapping includes:
-  * Creating the JS component itself located under the `src/components/` directory
+  * Creating the JS component itself located under the `imports/ui/` directory
     * Note: The component will have the first letter of it's name capitalized. Remaining letters will be unaffected.
-  * Creating the JS component test located under the `src/components/test/` directory
+  * Creating the JS component test located under the `imports/ui/test/` directory
     * Note: The component will have the first letter of it's name capitalized. Remaining letters will be unaffected.
-  * Creating the SASS stylesheet located under the `src/stylesheets/components/` directory
+  * Creating the SASS stylesheet located under the `client/sass/components/` directory
     * Note: The component will have the first letter of it's name lowercased and an underscore prepended. Remaining letters will be unaffected.
-  * Including the new SASS file to the `src/stylesheets/components/all.sass` file via `@include <stylesheet>`
+  * Including the new SASS file to the `client/sass/components/all.scss` file via `@include "<stylesheet>";`
 
 > Note: Data is **appended** to the end of files via this helper. This is to avoid overwriting existing files' content if a file with the request name already exists.
 
 # Project Structure
 
 ```
-public                          // Static public files
-├── favicon.ico                 // Website icon for browsers
-└── index.html                  // Base React template. Used to 'host' application
-
-src
-├── components                  // Directory containing individual, unique components
-│   └── test                    // Directory containing tests for each component
+├── README.md                               // This file
 │
-├── img                         // Directory containing static image files such as logos and background images
+├── client                                  // Directory containing files used only on the client-side
+│   ├── main.css                            // CSS for the client. All SASS is compiled into this file via `npm run build-css` or `npm run watch-css`
+│   ├── main.html                           // The 'container' use by React to render all other components in
+│   ├── main.jsx                            // The React file used to include other components
+│   └── sass                                // Directory containing all SASS files
+│       ├── base                            // Directory containing SASS styles that apply 'globally' or in multiple locations
+│       │   └── all.scss                    // File responsible for including all other SASS files in this directory
+│       │
+│       ├── components                      // Directory containing SASS styles that apply only to a specific component
+│       │   └── all.scss                    // File responsible for including all other SASS files in this directory
+│       │
+│       ├── mixins                          // Directory containing SASS mixins
+│       │   └── all.scss                    // File responsible for including all other SASS files in this directory
+│       │
+│       └── main.scss                       // File used to import all styles via each directory's all.scss file
 │
-├── stylesheets                 // Directory for raw, uncompiled SASS stylesheets
-│   ├── base                    // Directory for items that apply to more one component such as SASS variables
-│   │   └── _reset.sass         // File containing styles that apply site-wide, to multiple components or reset/remove basic behavior to grant easier styling in other SASS stylesheets (for example, removing default margins)
-│   │   └── all.sass            // File responsible for including all other SASS files in this directory
-│   │
-│   ├── components              // Directory for styles applied to only certain, custom components
-│   │   └── all.sass            // File responsible for including all other SASS files in this directory
-│   │
-│   ├── mixins                  // Directory for utility SASS mixins
-│   │   └── all.sass            // File responsible for including all other SASS files in this directory
-│   │
-│   └── main.sass               // File responsible for including each "all.sass" files in all sub-directories for easy compilation of SASS to CSS
+├── imports                                 // Directory containing files that are imported in other locations. May contain both client and server items
+│   └── ui                                  // Directory containing import files for the front-end
+│       └── test                            // Directory containing UI tests
 │
-├── index.js                    // Base React node that includes all components and the compiled CSS stylesheet
+├── package.json                            // Package generated by NPM, listing project dependencies
 │
-└── main.css                    // Single stylesheet for the app. Generated by compiling all SASS files
-
-util                            // Various helper scripts to assist in project-wide management and automate mundane tasks
-├── templates                   // Template files utilized by helper scripts
-│
-└── helper.sh                   // Bash script to automate mundane, manual tasks such as creating a new component
+├── server                                  // Directory containing files used only on the server-side
+└── util                                    // Various helper scripts to assist in project-wide management and automate mundane tasks
+    ├── helper.sh                           // Bash script to automate mundane, manual tasks such as creating a new component
+    └── templates                           // Template files utilized by helper scripts
 ```

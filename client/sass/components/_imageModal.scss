@@ -1,0 +1,31 @@
+/* ---------- _imageModal.scss ---------- */
+.ImageModal__Left {
+  display: inline-block;
+  width: 30%;
+  margin-right: 1%;
+  color: $primary-text;
+  vertical-align: top;
+  padding: $padding-medium;
+  border: 3px double $primary-border;
+
+  &-Heading {
+    margin-bottom: $padding-large;
+  }
+
+  &-Subheading {
+    padding-bottom: $padding-small;
+    margin-bottom: $padding-medium;
+    border-bottom: 2px solid white;
+  }
+}
+
+.ImageModal__Right {
+  display: inline-block;
+  width: 66%;
+  text-align: center;
+}
+
+.ImageModal__Image {
+  max-width: 100%;
+  border: 1px solid $primary-border;
+}

@@ -17,17 +17,17 @@ ${txtbld}SYNOPSIS${txtrst}
 
 ${txtbld}DESCRIPTION${txtrst}
 	${txtbld}new_component${txtrst}
-	    Completely initialises a new components with it's JS, SASS and tests files. Also adds the SASS file to the "all.sass" file.${txtrst}
+	    Completely initialises a new components with it's JS, SASS and tests files. Also adds the SASS file to the "all.scss" file.${txtrst}
   ${txtbld}new${txtrst}
 	    Alias for new_component.${txtrst}
   ${txtbld}create_component${txtrst}
-	    Create ONLY the skeleton of a new component in the "src/components" directory.${txtrst}
+	    Create ONLY the skeleton of a new component in the "imports/ui" directory.${txtrst}
   ${txtbld}create_sass${txtrst}
-	    Create ONLY component's SASS file in the "src/stylesheets/components" directory.${txtrst}
+	    Create ONLY component's SASS file in the "client/sass/components" directory.${txtrst}
   ${txtbld}add_to_sass_all${txtrst}
-	    Adds a component with the given name to the "src/stylesheets/components/all.sass" file.${txtrst}
+	    Adds a component with the given name to the "client/sass/components/all.sass" file.${txtrst}
   ${txtbld}create_test${txtrst}
-	    Create ONLY the test file for the component in the "src/components/test" directory.${txtrst}
+	    Create ONLY the test file for the component in the "imports/ui/test" directory.${txtrst}
 
 EOF
 exit 1
@@ -38,7 +38,7 @@ create_component()
   component_name="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}" # Capitalise 1st Letter.
   component_template=`cat $dir/templates/component`
   str_to_replace='__component__'
-  echo "${component_template//$str_to_replace/$component_name}" >> "$dir/../src/components/${component_name}.js"
+  echo "${component_template//$str_to_replace/$component_name}" >> "$dir/../imports/ui/${component_name}.js"
 }
 
 create_sass()
@@ -46,13 +46,13 @@ create_sass()
   component_name="$(tr '[:upper:]' '[:lower:]' <<< ${name:0:1})${name:1}" # Lowercase 1st Letter.
   sass_template=`cat $dir/templates/sass`
   str_to_replace='__component__'
-  echo "${sass_template//$str_to_replace/$component_name}" >> "$dir/../src/stylesheets/components/_${component_name}.sass"
+  echo "${sass_template//$str_to_replace/$component_name}" >> "$dir/../client/sass/components/_${component_name}.scss"
 }
 
 add_to_sass_all()
 {
 	component_name="$(tr '[:upper:]' '[:lower:]' <<< ${name:0:1})${name:1}" # Lowercase 1st Letter.
-  echo "@import ${component_name}" >> "$dir/../src/stylesheets/components/all.sass"
+  echo "@import \"${component_name}\";" >> "$dir/../client/sass/components/all.scss"
 }
 
 create_test()
@@ -60,7 +60,7 @@ create_test()
   component_name="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}" # Capitalise 1st Letter
   test_template=`cat $dir/templates/test`
   str_to_replace='__component__'
-  echo "${test_template//$str_to_replace/$component_name}" >> "$dir/../src/components/test/${component_name}.test.js"
+  echo "${test_template//$str_to_replace/$component_name}" >> "$dir/../imports/ui/test/${component_name}.test.js"
 }
 
 new_component()

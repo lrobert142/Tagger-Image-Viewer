@@ -1,0 +1,14 @@
+/* ---------- _header.scss ---------- */
+.Header {
+  background-color: $primary-background;
+  padding: $padding-small;
+  color: $primary-text;
+}
+
+.Header__Add {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 30px;
+  cursor: pointer;
+}
