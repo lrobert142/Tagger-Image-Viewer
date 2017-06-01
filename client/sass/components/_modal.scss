@@ -20,16 +20,23 @@
   color: $primary-text;
   font-weight: bold;
 
+  &-Delete {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px;
+    color: $red;
+  }
+
   &-Edit {
     display: inline-block;
     margin-right: 20px;
-    padding: 10px
+    padding: 10px;
   }
 
   &-Close {
     display: inline-block;
     margin-right: 20px;
-    padding: 10px
+    padding: 10px;
   }
 }
 
