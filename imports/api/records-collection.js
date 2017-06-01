@@ -22,5 +22,21 @@ Meteor.methods({
       image: image,
       createdAt: new Date(),
     });
-  }
+  },
+
+  'records.updateTitle'(id, title) {
+    check(title, String);
+
+    Records.update(id, {
+      $set: { title: title },
+    });
+  },
+
+  'records.updateTags'(id, tags) {
+    check(tags, String);
+
+    Records.update(id, {
+      $set: { tags: tags },
+    });
+  },
 });

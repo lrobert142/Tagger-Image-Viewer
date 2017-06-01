@@ -19,11 +19,14 @@ class App extends Component {
     };
 
     this.addRecord = this.addRecord.bind(this);
-    this.updateRecord = this.updateRecord.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateTags = this.updateTags.bind(this);
+
     this.showAddModal = this.showAddModal.bind(this);
     this.showImageModal = this.showImageModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.showImage = this.showImage.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
     this.filterBySearch = this.filterBySearch.bind(this);
   }
 
@@ -39,7 +42,15 @@ class App extends Component {
     });
   }
 
-  updateRecord(event) {
+  updateTitle(event) {
+    console.log("UPDATE TITLE");
+    console.log("EVENT:", event);
+    console.log("TARGET:", event.target);
+    console.log("VALUE:", event.target.value);
+  }
+
+  updateTags(event) {
+    console.log("UPDATE TAGS");
     console.log("EVENT:", event);
     console.log("TARGET:", event.target);
     console.log("VALUE:", event.target.value);
@@ -80,11 +91,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleAddNew={this.showAddModal} />
-        <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} searchText={this.state.searchText} />
-        <AddRecordModal handleSubmit={this.addRecord} handleClose={this.closeModal} modalActive={this.state.activeModal === 'AddRecordModal'} />
-        <ImageModal handleClose={this.closeModal} handleChange={this.updateRecord} modalActive={this.state.activeModal === 'ImageModal'}
-          record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) }
-        />
+        <Main
+          handleThumbnailClick={this.showImage}
+          handleSearch={this.filterBySearch}
+          records={this.props.records}
+          searchText={this.state.searchText} />
+
+        <AddRecordModal
+          handleSubmit={this.addRecord}
+          handleClose={this.closeModal}
+          modalActive={this.state.activeModal === 'AddRecordModal'} />
+
+        <ImageModal
+          handleClose={this.closeModal}
+          handleTitleChange={this.updateTitle}
+          handleTagsChange={this.updateTags}
+          modalActive={this.state.activeModal === 'ImageModal'}
+          record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) } />
       </div>
     );
   }
