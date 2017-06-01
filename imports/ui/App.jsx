@@ -21,6 +21,7 @@ class App extends Component {
     this.addRecord = this.addRecord.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateTags = this.updateTags.bind(this);
+    this.deleteRecord = this.deleteRecord.bind(this);
 
     this.showAddModal = this.showAddModal.bind(this);
     this.showImageModal = this.showImageModal.bind(this);
@@ -52,6 +53,12 @@ class App extends Component {
     let id = this.props.records[this.state.activeImageIndex]._id;
     let tags = event.target.value;
     Meteor.call('records.updateTags', id, tags);
+  }
+
+  deleteRecord() {
+    let id = this.props.records[this.state.activeImageIndex]._id;
+    console.log("DELETE");
+    // Meteor.call('records.delete', id);
   }
 
   showAddModal() {
@@ -104,6 +111,7 @@ class App extends Component {
           handleClose={this.closeModal}
           handleTitleChange={this.updateTitle}
           handleTagsChange={this.updateTags}
+          handleDelete={this.deleteRecord}
           modalActive={this.state.activeModal === 'ImageModal'}
           record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) } />
       </div>
