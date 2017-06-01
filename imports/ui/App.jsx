@@ -19,6 +19,7 @@ class App extends Component {
     };
 
     this.addRecord = this.addRecord.bind(this);
+    this.updateRecord = this.updateRecord.bind(this);
     this.showAddModal = this.showAddModal.bind(this);
     this.showImageModal = this.showImageModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -36,6 +37,12 @@ class App extends Component {
         Meteor.call('records.insert', title, tags, imageUrl);
       }
     });
+  }
+
+  updateRecord(event) {
+    console.log("EVENT:", event);
+    console.log("TARGET:", event.target);
+    console.log("VALUE:", event.target.value);
   }
 
   showAddModal() {
@@ -75,7 +82,7 @@ class App extends Component {
         <Header handleAddNew={this.showAddModal} />
         <Main handleThumbnailClick={this.showImage} handleSearch={this.filterBySearch} records={this.props.records} searchText={this.state.searchText} />
         <AddRecordModal handleSubmit={this.addRecord} handleClose={this.closeModal} modalActive={this.state.activeModal === 'AddRecordModal'} />
-        <ImageModal handleClose={this.closeModal} modalActive={this.state.activeModal === 'ImageModal'}
+        <ImageModal handleClose={this.closeModal} handleChange={this.updateRecord} modalActive={this.state.activeModal === 'ImageModal'}
           record={ (this.props.records.length > 0 ? this.props.records[this.state.activeImageIndex] : {'title': "", 'tags': "", 'image': ""}) }
         />
       </div>

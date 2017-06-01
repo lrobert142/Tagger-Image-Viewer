@@ -13,7 +13,6 @@ class ImageModal extends Component {
   }
 
   handleEdit() {
-    console.log("HANDLE EDIT");
     this.setState(prevState => ({
         'isEditing': !prevState.isEditing
     }));
@@ -37,10 +36,10 @@ class ImageModal extends Component {
         <div className="Modal__Content">
           <div className="ImageModal__Left">
             <h1 className={this.state.isEditing ? 'no-display': 'ImageModal__Left-Heading'}>{this.props.record.title}</h1>
-            <input id="editTitle" type="text" className={this.state.isEditing ? '' : 'no-display'} value={this.props.record.title} />
+            <input id="editTitle" type="text" className={this.state.isEditing ? '' : 'no-display'} value={this.props.record.title} onChange={this.props.handleChange} />
             <h2 className="ImageModal__Left-Subheading">Tags</h2>
             { tags }
-            <input id="editTags" type="text" className={this.state.isEditing ? '' : 'no-display'} value={this.props.record.tags} />
+            <input id="editTags" type="text" className={this.state.isEditing ? '' : 'no-display'} value={this.props.record.tags} onChange={this.props.handleChange} />
           </div>
 
           <div className="ImageModal__Right">
