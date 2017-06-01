@@ -14,8 +14,8 @@ class ImageModal extends Component {
     });
 
     return (
-      <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'} onClick={this.props.handleClose}>
-        <div className="Modal__Close">
+      <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
+        <div className="Modal__Close" onClick={this.props.handleClose}>
           <p>X</p>
         </div>
         <div className="Modal__Content">
