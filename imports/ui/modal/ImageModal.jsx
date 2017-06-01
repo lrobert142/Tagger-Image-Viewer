@@ -4,6 +4,12 @@ class ImageModal extends Component {
 
   constructor(props) {
     super(props);
+
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleEdit() {
+    console.log("HANDLE EDIT");
   }
 
   render() {
@@ -15,8 +21,9 @@ class ImageModal extends Component {
 
     return (
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
-        <div className="Modal__Close" onClick={this.props.handleClose}>
-          <p>X</p>
+        <div className="Modal__Options">
+          <p className="Modal__Options-Edit" onClick={this.handleEdit}>EDIT</p>
+          <p className="Modal__Options-Close" onClick={this.props.handleClose}>X</p>
         </div>
         <div className="Modal__Content">
           <div className="ImageModal__Left">
