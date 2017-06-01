@@ -41,7 +41,6 @@ Meteor.methods({
   },
 
   'records.delete'(id) {
-
     Records.remove(id);
   },
 });
