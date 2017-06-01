@@ -10,6 +10,14 @@ class ImageModal extends Component {
     }
 
     this.handleEdit = this.handleEdit.bind(this);
+    this.deleteRecord = this.deleteRecord.bind(this);
+  }
+
+  deleteRecord() {
+    if (confirm("Are you sure your wish to delete this item?\nThis action CANNOT be undone!") === true) {
+      this.props.handleDelete();
+      this.props.handleClose();
+    }
   }
 
   handleEdit() {
@@ -29,6 +37,7 @@ class ImageModal extends Component {
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
 
         <div className="Modal__Options">
+          <p className="Modal__Options-Delete" onClick={this.deleteRecord}>DELETE</p>
           <p className="Modal__Options-Edit" onClick={this.handleEdit}>{this.state.isEditing ? 'FINISH': 'EDIT'}</p>
           <p className="Modal__Options-Close" onClick={this.props.handleClose}>X</p>
         </div>
