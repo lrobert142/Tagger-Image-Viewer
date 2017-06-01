@@ -29,7 +29,7 @@ class ImageModal extends Component {
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
 
         <div className="Modal__Options">
-          <p className="Modal__Options-Edit" onClick={this.handleEdit}>{this.state.isEditing ? 'UPDATE': 'EDIT'}</p>
+          <p className="Modal__Options-Edit" onClick={this.handleEdit}>{this.state.isEditing ? 'FINISH': 'EDIT'}</p>
           <p className="Modal__Options-Close" onClick={this.props.handleClose}>X</p>
         </div>
 
