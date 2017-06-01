@@ -10,8 +10,8 @@ class AddRecordModal extends Component {
   render() {
     return (
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
-        <div className="Modal__Close" onClick={this.props.handleClose}>
-          <p>X</p>
+        <div className="Modal__Options" onClick={this.props.handleClose}>
+          <p className="Modal__Options-Close">X</p>
         </div>
         <div className="Modal__Content">
           <form id="addRecordForm" className="AddRecordForm"
