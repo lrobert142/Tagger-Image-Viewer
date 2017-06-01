@@ -43,17 +43,15 @@ class App extends Component {
   }
 
   updateTitle(event) {
-    console.log("UPDATE TITLE");
-    console.log("EVENT:", event);
-    console.log("TARGET:", event.target);
-    console.log("VALUE:", event.target.value);
+    let id = this.props.records[this.state.activeImageIndex]._id;
+    let title = event.target.value;
+    Meteor.call('records.updateTitle', id, title);
   }
 
   updateTags(event) {
-    console.log("UPDATE TAGS");
-    console.log("EVENT:", event);
-    console.log("TARGET:", event.target);
-    console.log("VALUE:", event.target.value);
+    let id = this.props.records[this.state.activeImageIndex]._id;
+    let tags = event.target.value;
+    Meteor.call('records.updateTags', id, tags);
   }
 
   showAddModal() {
