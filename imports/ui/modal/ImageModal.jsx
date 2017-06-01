@@ -7,6 +7,12 @@ class ImageModal extends Component {
   }
 
   render() {
+    let tags = [];
+    let splitTags = this.props.record.tags.split(',');
+    splitTags.forEach((tag, index) => {
+      tags.push(<p key={index} className="ImageModal__Left-Tag">{tag.trim()}</p>);
+    });
+
     return (
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'} onClick={this.props.handleClose}>
         <div className="Modal__Close">
@@ -16,7 +22,7 @@ class ImageModal extends Component {
           <div className="ImageModal__Left">
             <h1 className="ImageModal__Left-Heading">{this.props.record.title}</h1>
             <h2 className="ImageModal__Left-Subheading">Tags</h2>
-            <p>{this.props.record.tags}</p>
+            { tags }
           </div>
           <div className="ImageModal__Right">
             <img className="ImageModal__Image" src={this.props.record.image} alt="" />
