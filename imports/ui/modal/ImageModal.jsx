@@ -28,10 +28,12 @@ class ImageModal extends Component {
 
     return (
       <div className={!(this.props.modalActive) ? 'no-display' : 'Modal'}>
+
         <div className="Modal__Options">
           <p className="Modal__Options-Edit" onClick={this.handleEdit}>{this.state.isEditing ? 'UPDATE': 'EDIT'}</p>
           <p className="Modal__Options-Close" onClick={this.props.handleClose}>X</p>
         </div>
+
         <div className="Modal__Content">
           <div className="ImageModal__Left">
             <h1 className={this.state.isEditing ? 'no-display': 'ImageModal__Left-Heading'}>{this.props.record.title}</h1>
@@ -40,10 +42,12 @@ class ImageModal extends Component {
             { tags }
             <input id="editTags" type="text" className={this.state.isEditing ? '' : 'no-display'} value={this.props.record.tags} />
           </div>
+
           <div className="ImageModal__Right">
-            <img className="ImageModal__Image" src={this.props.record.image} alt="" />
+            <img className="ImageModal__Image" src={this.props.record.image} alt="Featured Image" />
           </div>
         </div>
+
       </div>
     );
   }
